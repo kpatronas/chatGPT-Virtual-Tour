@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <script>
+        <!--
+        function positionGetSuccess(pos)
+        {
+            const crd = pos.coords;
+            const options = { method: 'GET' };
+            fetch('http://localhost:8001/api/tour/?lon='+crd.longitude+'&lat='+crd.latitude,options)
+            .then( response => response.json() )
+            .then( response => {
+                document.write(response.tour);
+                let utterance = new SpeechSynthesisUtterance();
+                utterance.text = response.tour;
+                utterance.lang = 'en-US';
+                utterance.rate = 1.0;
+                utterance.pitch = 1.0;
+                speechSynthesis.speak(utterance);
+             })
+        }
+
+        function positionGetError(err)
+        {
+            console.warn(`ERROR(${err.code}): ${err.message}`);
+        }
+
+        function getTourInfo()
+        {
+            const positionOptions = { enableHighAccuracy: true, timeout: 5000, maximumAge: 0,};
+            navigator.geolocation.getCurrentPosition(positionGetSuccess, positionGetError, positionOptions);
+        }
+        //-->
+        </script>
+    </head>
+    <body>
+        <button onclick="getTourInfo()">Tour Me!</button>
+    </body>
+</html>
