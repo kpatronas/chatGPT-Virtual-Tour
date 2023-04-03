@@ -10,4 +10,4 @@ chmod +x ./tour.py
 ```
 if the script starts without errors open from your browser tour.html and press the tour me button. should ask for geolocation and soon after will pop a the chatgpt answer and a video
 
-Note: geolocation from an ip other than localhost and 127.0.0.* requires https..
+Note: geolocation rights from a browser using an ip other than 127.0.0.* or localhost requires https..
